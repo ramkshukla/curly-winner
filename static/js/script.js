@@ -101,3 +101,62 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage){
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
     
 }
+
+
+
+// challenge 4: change the color of the button
+var all_button = document.getElementsByTagName("button");
+console.log(all_button);
+
+var copyAllButton = [];
+for(let i=0; i<all_button.length; i++){
+    copyAllButton.push(all_button[i]);
+}
+console.log(copyAllButton);
+
+function buttonColorChange(buttonthingy){
+    if(buttonthingy.value === 'red'){
+        buttonsRed();
+    }
+    else if (buttonthingy.value === 'green'){
+        buttonsGreen();
+    }
+    else if (buttonthingy.value === 'reset'){
+        buttonsReset();
+    }
+    else if(buttonthingy.value === 'random'){
+        randomColors();
+    }
+}
+
+function buttonsRed(){
+    for(let i=0; i<all_button.length; i++){
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add('btn-danger');
+    }
+}
+
+function buttonsGreen(){
+    for(let i=0; i<all_button.length; i++){
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add('btn-success');
+    }
+}
+
+function buttonsReset(){
+    for(let i=0; i<all_button.length; i++){
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add(copyAllButton[i]);
+    }
+}
+
+function randomColors(){
+    let choices = ['btn-primary', 'btn-danger', 'btn-sucess', 'bn-warning'];
+    for(let i=0; i<all_button.length; i++){
+        let randomNumber = Math.floor(Math.random() * 4);
+        all_button[i].classList.remove(all_button[i].classList[1]);
+        all_button[i].classList.add(choices[randomNumber]);
+
+    }
+}
+
